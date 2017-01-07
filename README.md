@@ -1,4 +1,5 @@
 Installation:
+
     cd ~
     git clone git://github.com/manuelmeraz/.vim
 
