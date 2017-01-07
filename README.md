@@ -1,7 +1,7 @@
 Installation:
 
     cd ~
-    git clone git@github.com:ManuelMeraz/.vim.git
+    https://github.com/ManuelMeraz/.vim.git
 
 Switch to the `~/.vim` directory, and fetch submodules:
 
