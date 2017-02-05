@@ -7,6 +7,10 @@ set shiftwidth=4
 set expandtab ts=4 sw=4 sts=4
 set number
 
+" ignore ex mode
+map q: <Nop>
+nnoremap Q <nop>
+
 " auto complete in insert mode using ctrl+n
 autocmd Filetype html set omnifunc=htmlcomplete#CompleteTags
 autocmd Filetype javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -60,3 +64,7 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
  " for css or scss
  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" C++11 for syntastic
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 '
