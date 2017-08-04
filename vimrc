@@ -2,9 +2,9 @@ color elflord
 execute pathogen#infect()
 filetype plugin indent on
 syntax on
-set tabstop=4
-set shiftwidth=4
-set expandtab ts=4 sw=4 sts=4
+set tabstop=2
+set shiftwidth=2
+set expandtab ts=2 sw=2 sts=2
 set number
 
 " ignore ex mode
