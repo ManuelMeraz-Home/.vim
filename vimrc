@@ -68,3 +68,5 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 " C++11 for syntastic
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 '
+
+autocmd BufNewFile,BufRead *.nc   set syntax=c
