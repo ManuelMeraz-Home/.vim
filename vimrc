@@ -7,6 +7,8 @@ set shiftwidth=4
 set expandtab ts=4 sw=4 sts=4
 set number
 
+set rtp+=~/.vim/bundle/.fzf
+
 " ignore ex mode
 map q: <Nop>
 nnoremap Q <nop>
