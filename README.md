@@ -6,8 +6,10 @@ Installation:
 Switch to the `~/.vim` directory, and fetch submodules:
 
     cd ~/.vim
-    git submodule init
-    git submodule update
+    git submodule update --init -- recursive
 
     <!--- Install fuzzy finder --->
     ./bundle/fzf/install
+
+    sudo apt-get install python-dev python3-dev -y
+    ./bundle/YouCompleteMe/install.py --all
