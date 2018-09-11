@@ -6,7 +6,7 @@ Installation:
 Switch to the `~/.vim` directory, and fetch submodules:
 
     cd ~/.vim
-    git submodule update --init -- recursive
+    git submodule update --init --recursive
 
     <!--- Install fuzzy finder --->
     ./bundle/fzf/install
