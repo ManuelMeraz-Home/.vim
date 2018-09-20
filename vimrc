@@ -2,15 +2,16 @@ color elflord
 execute pathogen#infect()
 filetype plugin indent on
 syntax on
-set tabstop=4
-set shiftwidth=4
-set expandtab ts=4 sw=4 sts=4
+set tabstop=2
+set shiftwidth=2
+set expandtab ts=2 sw=2 sts=2
 set number
 
 set rtp+=~/.vim/bundle/.fzf
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <esc> :noh<return><esc>
 
 " " make YCM compatible with UltiSnips (using supertab)
 let g:SuperTabDefaultCompletionType = '<C-n>'
