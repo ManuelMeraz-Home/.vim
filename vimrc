@@ -8,12 +8,13 @@ set expandtab ts=2 sw=2 sts=2
 set number
 
 set rtp+=~/.vim/bundle/.fzf
+set clipboard=unnamed
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
-nnoremap <esc> :noh<return><esc>
 
 " " make YCM compatible with UltiSnips (using supertab)
+set encoding=utf-8
 let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -97,8 +98,21 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  " for css or scss
  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-" C++11 for syntastic
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 '
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
+
+
+" End syntastic
+
+" For nesc network simulator
 autocmd BufNewFile,BufRead *.nc   set syntax=c
