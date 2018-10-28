@@ -8,6 +8,8 @@ set expandtab ts=2 sw=2 sts=2
 set number
 
 set rtp+=~/.vim/bundle/.fzf
+nmap <C-p> :FZF<CR>
+
 set clipboard=unnamed
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
