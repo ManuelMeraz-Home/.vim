@@ -115,6 +115,8 @@ get_python_inc(),
 '-isystem',
 '/g/g20/manny/meos/src/Models/strength',
 '-isystem',
+'/g/g20/manny/meos/External/udunits/lib',
+'-isystem',
 '/usr/workspace/wsrzc/leos/toss_3_x86_64/gnu/include/',
 '-isystem',
 '/g/g20/manny/meos/src/OutputFuncs/'
