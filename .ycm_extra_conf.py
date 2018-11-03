@@ -78,46 +78,6 @@ get_python_inc(),
 './tests/gmock/include',
 '-isystem',
 './benchmarks/benchmark/include',
-'-isystem',
-'/opt/ros/bouncy/include', # ros 2.0 preprocessor flags
-'-isystem',
-'/g/g20/manny/meos/src/',
-'-isystem',
-'/g/g20/manny/meos/src/from_xeos',
-'-isystem',
-'/g/g20/manny/meos/src/logging',
-'-isystem',
-'/g/g20/manny/meos/src/Analysis',
-'-isystem',
-'/g/g20/manny/meos/src/DerivFuncs',
-'-isystem',
-'/g/g20/manny/meos/src/DDCMD_Files',
-'-isystem',
-'/g/g20/manny/meos/src/Funcs',
-'-isystem',
-'/g/g20/manny/meos/src/Gamma',
-'-isystem',
-'/g/g20/manny/meos/src/Markers',
-'-isystem',
-'/g/g20/manny/meos/src/Repair',
-'-isystem',
-'/g/g20/manny/meos/src/Models',
-'-isystem',
-'/g/g20/manny/meos/src/Models/cold/',
-'-isystem',
-'/g/g20/manny/meos/src/Models/ele',
-'-isystem',
-'/g/g20/manny/meos/src/Models/experimental',
-'-isystem',
-'/g/g20/manny/meos/src/Models/ion',
-'-isystem',
-'/g/g20/manny/meos/src/Models/shared',
-'-isystem',
-'/g/g20/manny/meos/src/Models/strength',
-'-isystem',
-'/usr/workspace/wsrzc/leos/toss_3_x86_64/gnu/include/',
-'-isystem',
-'/g/g20/manny/meos/src/OutputFuncs/'
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
@@ -137,7 +97,7 @@ if platform.system() != 'Windows':
 #
 # Most projects will NOT need to set this to anything; you can just change the
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
-compilation_database_folder = ''
+compilation_database_folder = '/home/manny/dev/proj/build/'
 
 if os.path.exists( compilation_database_folder ):
   database = ycm_core.CompilationDatabase( compilation_database_folder )

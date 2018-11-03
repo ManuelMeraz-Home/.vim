@@ -102,7 +102,11 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 let b:ale_linters = 'all'
-let g:ale_c_build_dir = '/home/manny/dev/practice/build'
+let g:ale_c_build_dir_names = [
+      \'/home/manny/dev/practice/build',
+      \'/home/manny/dev/proj/build/',
+      \]
+let g:ale_cpp_clang_options = "-std=c++14 -Wall -isystem /home/manny/dev/proj/ext/udunits/lib/"
 let g:ale_fixers = {
 \         'cpp': [
 \             'clang-format',
