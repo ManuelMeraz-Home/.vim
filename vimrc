@@ -1,5 +1,6 @@
 color elflord
 execute pathogen#infect()
+call pathogen#helptags()
 filetype plugin indent on
 syntax on
 set tabstop=2
@@ -100,21 +101,19 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  " for css or scss
  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let b:ale_linters = 'all'
+let g:ale_c_build_dir_names = [
+      \'/g/g20/manny/proj/build/',
+      \'/g/g20/manny/meos/build/',
+      \]
+let g:ale_cpp_clang_options = "-std=c++14 -Wall -isystem /g/g20/manny/proj/ext/udunits/lib/"
+let g:ale_fixers = {
+\         'cpp': [
+\             'clang-format',
+\             'uncrustify',
+\             'remove_trailing_lines',
+\             'trim_whitespace',
+\            ],
+\          }
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
-
-
-" End syntastic
-
-" For nesc network simulator
-autocmd BufNewFile,BufRead *.nc   set syntax=c
+nmap <C-l> <Plug>(ale_fix)
