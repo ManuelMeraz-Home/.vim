@@ -87,8 +87,9 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  inoremap <silent><F3> <C-O>:lprevious<CR>
  vnoremap <silent><F3> :lprevious<CR>
 
- " css color
- "let g:cssColorVimDoNotMessMyUpdatetime = 1
+ map gn :bn<cr>
+ map gp :bp<cr>
+ map gd :bd<cr>  
 
  " Beautify
  autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
