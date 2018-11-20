@@ -111,12 +111,14 @@ let g:ale_cpp_clang_options = "
       \ -std=c++14 
       \ -Wall 
       \ -isystem /g/g20/manny/meos/src
-      \ -isystem /g/g20/manny/meos/External/udunits/lib/"
+      \ -isystem /g/g20/manny/meos/External/udunits/lib/
+      \ -isystem /usr/workspace/wsrzc/leos/toss_3_x86_64/gnu/include/'"
 let g:ale_cpp_gcc_options  = "
       \ -std=c++14 
       \ -Wall 
       \ -isystem /g/g20/manny/meos/src
-      \ -isystem /g/g20/manny/meos/External/udunits/lib/"
+      \ -isystem /g/g20/manny/meos/External/udunits/lib/
+      \ -isystem /usr/workspace/wsrzc/leos/toss_3_x86_64/gnu/include/'"
 let g:ale_fixers = {
 \         'cpp': [
 \             'clang-format',
