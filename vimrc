@@ -107,8 +107,16 @@ let g:ale_c_build_dir_names = [
       \'/g/g20/manny/proj/build/',
       \'/g/g20/manny/meos/build/',
       \]
-let g:ale_cpp_clang_options = "-std=c++14 -Wall -isystem /g/g20/manny/meos/src"
-let g:ale_cpp_gcc_options  = "-std=c++14 -Wall -isystem /g/g20/manny/meos/src"
+let g:ale_cpp_clang_options = "
+      \ -std=c++14 
+      \ -Wall 
+      \ -isystem /g/g20/manny/meos/src
+      \ -isystem /g/g20/manny/meos/External/udunits/lib/"
+let g:ale_cpp_gcc_options  = "
+      \ -std=c++14 
+      \ -Wall 
+      \ -isystem /g/g20/manny/meos/src
+      \ -isystem /g/g20/manny/meos/External/udunits/lib/"
 let g:ale_fixers = {
 \         'cpp': [
 \             'clang-format',
