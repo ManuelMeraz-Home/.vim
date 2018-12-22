@@ -3,11 +3,9 @@ execute pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
-set tabstop=2
-set shiftwidth=2
-set expandtab ts=2 sw=2 sts=2
-set number
+set number tabstop=2 ts=2 sw=2 sts=2
 
+" set runtime path (environment variable) for vim
 set rtp+=~/.vim/bundle/.fzf
 nmap <C-p> :FZF<CR>
 
@@ -129,3 +127,4 @@ let g:ale_fixers = {
 \          }
 
 nmap <C-l> <Plug>(ale_fix)
+
