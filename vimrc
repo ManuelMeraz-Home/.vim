@@ -85,8 +85,13 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  inoremap <silent><F3> <C-O>:lprevious<CR>
  vnoremap <silent><F3> :lprevious<CR>
 
+ " move to next buffer
  map gn :bn<cr>
+
+ " move to previous buffer
  map gp :bp<cr>
+
+ " delete current buffer
  map gd :bd<cr>  
 
  " Beautify
@@ -100,23 +105,21 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  " for css or scss
  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
+" Use all availabole linters with ale lint 
 let b:ale_linters = 'all'
-let g:ale_c_build_dir_names = [
-      \'/g/g20/manny/proj/build/',
-      \'/g/g20/manny/meos/build/',
-      \]
+" Tell ale lint where the build directories are to find the json databases
+" used by clangtidy and clangcheck.
+let g:ale_c_build_dir_names = []
+
+" clang and gcc in ale lint do not use the json databses, so must tell
+" them specific flags
 let g:ale_cpp_clang_options = "
       \ -std=c++14 
-      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic
-      \ -isystem /g/g20/manny/meos/src
-      \ -isystem /g/g20/manny/meos/External/udunits/lib/
-      \ -isystem /usr/workspace/wsrzc/leos/toss_3_x86_64/gnu/include/'"
+      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic"
 let g:ale_cpp_gcc_options  = "
       \ -std=c++14 
-      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic
-      \ -isystem /g/g20/manny/meos/src
-      \ -isystem /g/g20/manny/meos/External/udunits/lib/
-      \ -isystem /usr/workspace/wsrzc/leos/toss_3_x86_64/gnu/include/'"
+      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic"
+" ale fixers format and clean up C++ code
 let g:ale_fixers = {
 \         'cpp': [
 \             'clang-format',
@@ -126,5 +129,5 @@ let g:ale_fixers = {
 \            ],
 \          }
 
+" call ale fixers with ctrl+l
 nmap <C-l> <Plug>(ale_fix)
-
