@@ -131,3 +131,35 @@ let g:ale_fixers = {
 
 " call ale fixers with ctrl+l
 nmap <C-l> <Plug>(ale_fix)
+
+" fixes backspace
+inoremap <silent><backspace> <C-O>:call Backspace()<CR>
+
+function Backspace() 
+
+	let line_length = strwidth(getline('.'))
+	let current_pos = getcurpos()
+	let line_pos = current_pos[1]
+	let col_pos = current_pos[2]
+
+	" not in the beginning nor the end
+	if col_pos > 1 && col_pos != line_length
+		normal! hx
+		startinsert
+	" in the end of the line
+	elseif col_pos == line_length
+		normal! x
+		startinsert! 
+	" the beginning of the line and not the first line
+	elseif col_pos == 1 && line_pos > 1
+		normal! kJx
+
+		if line_length == 0
+			startinsert!
+		else 
+			startinsert
+		endif
+	endif
+
+endfunction
+
