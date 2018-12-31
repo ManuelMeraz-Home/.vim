@@ -50,6 +50,8 @@ autocmd Filetype html set omnifunc=htmlcomplete#CompleteTags
 autocmd Filetype javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
 
+autocmd Filetype python nnoremap <buffer> <c-l> :exec '!python' shellescape(@%, 1)<cr>
+
 " Matchit - highlights pairs
 let g:hl_matchit_enable_on_vim_startup = 1
 
