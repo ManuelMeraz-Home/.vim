@@ -3,7 +3,7 @@ execute pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
-set number tabstop=2 ts=2 sw=2 sts=2
+set relativenumber tabstop=2 ts=2 sw=2 sts=2
 
 " set runtime path (environment variable) for vim
 set rtp+=~/.vim/bundle/.fzf
