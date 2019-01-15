@@ -3,7 +3,7 @@ execute pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
-set number tabstop=2 ts=2 sw=2 sts=2
+set number tabstop=2 ts=2 sw=2 sts=2 nocompatible
 
 " set runtime path (environment variable) for vim
 set rtp+=~/.vim/bundle/.fzf
@@ -108,7 +108,8 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " Use all availabole linters with ale lint 
-let b:ale_linters = 'all'
+autocmd Filetype cpp let b:ale_linters = 'all'
+autocmd Filetype python let b:ale_linters = ['mypy', 'flake8', 'prospector', 'pycodestyle', 'pyflakes', 'pyls', 'pyre']
 " Tell ale lint where the build directories are to find the json databases
 " used by clangtidy and clangcheck.
 let g:ale_c_build_dir_names = []
@@ -128,6 +129,15 @@ let g:ale_fixers = {
 \             'uncrustify',
 \             'remove_trailing_lines',
 \             'trim_whitespace',
+\            ],
+\         'python': [
+\							'add_blank_lines_for_python_control_statements',
+\							'autopep8',
+\							'black',
+\							'isort',
+\							'remove_trailing_lines',
+\							'trim_whitespace',
+\							'yapf',
 \            ],
 \          }
 
