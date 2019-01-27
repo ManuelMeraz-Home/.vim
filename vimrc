@@ -109,7 +109,8 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 
 " Use all availabole linters with ale lint 
 autocmd Filetype cpp let b:ale_linters = 'all'
-autocmd Filetype python let b:ale_linters = ['mypy', 'flake8', 'prospector', 'pycodestyle', 'pyflakes', 'pyls', 'pyre']
+autocmd Filetype python let b:ale_linters = [ 'flake8', 'prospector', 'pycodestyle', 'pyflakes', 'pyls', 'pyre']
+autocmd Filetype python let g:ale_virtualenv_dir_names = [$VIRTUAL_ENV]
 " Tell ale lint where the build directories are to find the json databases
 " used by clangtidy and clangcheck.
 let g:ale_c_build_dir_names = []
