@@ -1,45 +1,42 @@
-Installation:
+# Vim settings for Ubuntu
 
-    cd ~
-    git clone https://github.com/ManuelMeraz/.vim.git
+## Installation
 
+```
+cd ~
+git clone https://github.com/ManuelMeraz/.vim.git
+```
+
+### Script that runs the following commands
+```
+sudo setup.sh 
+```
+
+Vim 8 is required for a few of my plugins:
+```
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+```
 Switch to the `~/.vim` directory, and fetch submodules:
 
-    cd ~/.vim
-    git submodule update --init --recursive
+```
+cd ~/.vim
+git submodule update --init --recursive
+```
 
-    <!--- Install fuzzy finder --->
-    ./bundle/fzf/install
+Install fuzzy finder
+```
+./bundle/fzf/install
+```
 
-    sudo apt-get install python-dev python3-dev -y
-    
-    ./bundle/YouCompleteMe/install.py --all
-    
-    <!--- Install cmake --->
-    sudo apt-get install cmake
+Install YouCompleteMe and its dependencies
+```
+sudo apt install build-essential cmake python3-dev python3-pip
+```
 
-    <!--- Install pip --->
-    sudo apt install python3-pip -y
+Enable support for C family languages, there are additional flags if you'd like support for other languages that can be found in the [documentation](https://github.com/Valloric/YouCompleteMe).
+```
+./bundle/YouCompleteMe/install.py --clang-completer --clangd-completer
+```
 
-    sudo apt-get install python-dev python3-dev -y
-
-    <!--- if msbuild/xbuild required, install from website --->
-    https://www.mono-project.com/download/stable/
-
-    <!--- if go is required to build gocode --->
-    sudo apt install wget git
-
-    sudo apt install golang
-
-    <!--- install go path --->
-    echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-    echo 'export PATH=${PATH}:${GOPATH}/bin' >> ~/.bashrc
-    source ~/.bashrc
-
-    <!--- if node is required to set up Tern --->
-    sudo apt install nodejs
-    sudo apt install npm
-
-    <!--- if cargo is required for the Rust completer [restart device after install]--->
-    sudo apt install curl
-    curl https://sh.rustup.rs -sSf | sh
