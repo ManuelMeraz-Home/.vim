@@ -13,7 +13,8 @@ echo "Download vim plugins and install..."
 
 # Install fuzzy finder
 echo "Installing fuzzy finder..."
-(yes | $HOME/.vim/bundle/fzf/install) > /dev/null
+echo "Make sure to say NO to adding the source to bashrc, already in .profile for vim terminal!"
+($HOME/.vim/bundle/fzf/install) > /dev/null
 
 # Install YouCompleteMe and its dependencies
 echo "Installing YouCompleteMe dependencies..."
