@@ -7,16 +7,13 @@ echo "Installing Vim 8..."
 (apt -qq install vim -y) &> /dev/null
 
 # Switch to the `~/.vim` directory, and fetch submodules:
-echo "cd into .vim directory"
-(cd ~/.vim)
-
 echo "Download vim plugins and install..."
-(git submodule update --init --recursive) > /dev/null
+(cd $HOME/.vim && git submodule update --init --recursive) > /dev/null
 
 
 # Install fuzzy finder
 echo "Installing fuzzy finder..."
-(yes | ./bundle/fzf/install) > /dev/null
+(yes | $HOME/.vim/bundle/fzf/install) > /dev/null
 
 # Install YouCompleteMe and its dependencies
 echo "Installing YouCompleteMe dependencies..."
@@ -24,6 +21,6 @@ echo "Installing YouCompleteMe dependencies..."
 
 # Enable support for C family languages, there are additional flags if you'd like support for other languages that can be found in the [documentation](https://github.com/Valloric/YouCompleteMe).
 echo "Installing YouCompleteMe for C family..."
-(./bundle/YouCompleteMe/install.py --clang-completer) > /dev/null
+($HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer) > /dev/null
 
 echo "Done!"
