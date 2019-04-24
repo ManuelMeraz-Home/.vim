@@ -3,7 +3,7 @@ execute pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 syntax on
-set number tabstop=2 ts=2 sw=2 sts=2 nocompatible expandtab
+set number tabstop=2 ts=2 sw=2 sts=2 nocompatible expandtab rnu
 autocmd Filetype python set tabstop=4 ts=4 sw=4 sts=4 
 
 " set runtime path (environment variable) for vim
