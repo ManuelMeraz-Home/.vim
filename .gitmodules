@@ -26,10 +26,6 @@
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
   ignore = dirty
-[submodule "bundle/jshint2.vim"]
-	path = bundle/jshint2.vim
-	url = https://github.com/Shutnik/jshint2.vim
-  ignore = dirty
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
