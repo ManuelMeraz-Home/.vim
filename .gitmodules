@@ -42,10 +42,6 @@
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
   ignore = dirty
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = https://github.com/wincent/command-t.git
-  ignore = dirty
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
