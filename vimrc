@@ -87,6 +87,8 @@ let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_semantic_triggers =  {
   \   'c' : ['->', '.','re![_a-zA-z0-9]'],
   \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
@@ -118,46 +120,3 @@ map <C-n> :NERDTree<CR>
 
 " call ale fixers with ctrl+l
 nmap <C-l> <Plug>(ale_fix)
-
-"FILETYPES
-autocmd Filetype python set tabstop=4 ts=4 sw=4 sts=4 
-
-" Run python script with pressing Ctrl-k
-autocmd Filetype python nnoremap <buffer> <c-k> :exec '!python' shellescape(@%, 1)<cr>
-autocmd Filetype python let b:ale_linters = [ 'flake8', 'prospector', 'pycodestyle', 'pyflakes', 'pyls', 'pyre']
-autocmd Filetype python let g:ale_virtualenv_dir_names = [$VIRTUAL_ENV]
-autocmd Filetype python let g:ale_fixers = {
-      \         'python': [
-      \							'add_blank_lines_for_python_control_statements',
-      \							'autopep8',
-      \							'black',
-      \							'isort',
-      \							'remove_trailing_lines',
-      \							'trim_whitespace',
-      \							'yapf',
-      \            ],}
-
-
-" Use all available linters with ale lint 
-autocmd Filetype cpp let b:ale_linters = 'all'
-" Tell ale lint where the build directories are to find the json databases
-" used by clangtidy and clangcheck.
-autocmd Filetype cpp let g:ale_c_build_dir_names = []
-
-" clang and gcc in ale lint do not use the json databses, so must tell
-" them specific flags
-autocmd Filetype cpp let g:ale_cpp_clang_options = "
-      \ -std=c++17 
-      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic"
-
-autocmd Filetype cpp let g:ale_cpp_gcc_options  = ale_cpp_clang_options
-
-" ale fixers format and clean up C++ code
-autocmd Filetype cpp let g:ale_fixers = {
-      \         'cpp': [
-      \             'clang-format',
-      \             'uncrustify',
-      \             'remove_trailing_lines',
-      \             'trim_whitespace',
-      \            ],}
-
