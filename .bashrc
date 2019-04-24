@@ -1,7 +1,14 @@
 #! /usr/bin/env bash
 
+ctrl_p() {
+  filename=$(fzf)
+  if [[ ! -z $filename ]]; then
+    vim $filename
+  fi
+}
+
 # bind ctrp-p to allow vim to fuzzy find a file
-bind '"\C-p":"vim `fzf`\n"'
+bind '"\C-p":"ctrl_p\n"'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash 2> /dev/null
 
