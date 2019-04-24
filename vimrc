@@ -26,7 +26,7 @@ nmap <C-p> :FZF<CR>
 set clipboard=unnamedplus
 
 " ignore ex mode
-map q: <Nop>
+nnoremap q: <Nop>
 nnoremap Q <nop>
 
 " Quit vim with :Q as well
