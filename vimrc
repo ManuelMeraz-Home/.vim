@@ -147,11 +147,11 @@ autocmd Filetype cpp let g:ale_c_build_dir_names = []
 " clang and gcc in ale lint do not use the json databses, so must tell
 " them specific flags
 autocmd Filetype cpp let g:ale_cpp_clang_options = "
-      \ -std=c++14 
+      \ -std=c++17 
       \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic"
-autocmd Filetype cpp let g:ale_cpp_gcc_options  = "
-      \ -std=c++14 
-      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic"
+
+autocmd Filetype cpp let g:ale_cpp_gcc_options  = ale_cpp_clang_options
+
 " ale fixers format and clean up C++ code
 autocmd Filetype cpp let g:ale_fixers = {
       \         'cpp': [
