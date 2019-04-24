@@ -9,6 +9,7 @@ let g:ale_c_build_dir_names = []
 let g:ale_cpp_clang_options = "
       \ -std=c++17 
       \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic"
+      \.$PROJECT_INCLUDE_DIRS
 
 let g:ale_cpp_gcc_options  = ale_cpp_clang_options
 
