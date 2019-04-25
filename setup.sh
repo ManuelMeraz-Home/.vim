@@ -21,7 +21,7 @@ echo "Installing YouCompleteMe dependencies..."
 (apt -qq install g++ gcc build-essential cmake python-dev python3-dev python3-pip -y) &> /dev/null
 
 echo "Installing python fixers with pip..."
-(spinner pip3 install -r requirements.txt)
+(spinner pip3 install -r $HOME/requirements.txt)
 
 # Enable support for C family languages, there are additional flags if you'd like support for other languages that can be found in the [documentation](https://github.com/Valloric/YouCompleteMe).
 echo "Installing YouCompleteMe for C family..."
