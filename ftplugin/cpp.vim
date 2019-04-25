@@ -8,12 +8,21 @@ let b:ale_linters = 'all'
 " used by clangtidy and clangcheck.
 let g:ale_c_build_dir_names = []
 
+" If a build dir exists in the project directory, and it contains a
+" compilation database folder, get all the include flags for the file in this
+" project. 
+let current_file = expand('%:p')
+let project_dir = $PROJECT
+let get_includes_command = $HOME .'/.vim/.extract_compilation_db_includes.py ' . project_dir .' '. current_file
+let g:current_file_comp_db_includes = system(get_includes_command)
+
 " clang and gcc in ale lint do not use the json databses, so must tell
 " them specific flags
 let g:ale_cpp_clang_options = "
       \ -std=c++17 
       \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic"
-      \ .$PROJECT_INCLUDE_DIRS
+      \ .$PROJECT_INCLUDE_DIRS." "
+      \ .current_file_comp_db_includes
 
 let g:ale_cpp_gcc_options  = ale_cpp_clang_options
 
