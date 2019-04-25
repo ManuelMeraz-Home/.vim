@@ -30,4 +30,7 @@ echo "Installing python fixers for ALE..."
 echo "Installing cpp fixers for ALE..."
 (sudo apt -qq clang clang-tidy clang-format ) &> /dev/null
 
+[[ ! -e $HOME/.clang-tidy ]] && cp $HOME/.vim/.clang-tidy $HOME
+[[ ! -e $HOME/.clang-format ]] && cp $HOME/.vim/.clang-format $HOME
+
 echo "Done!"
