@@ -26,7 +26,7 @@ echo "Installing YouCompleteMe for C family..."
 ($HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer) > /dev/null
 
 echo "Installing python fixers with pip..."
-(pip3 install -r $HOME/requirements.txt)
+(pip3 install -r $HOME/.vim/requirements.txt)
 
 echo "Installing cpp fixers for ALE..."
 (sudo apt -qq clang clang-tidy clang-format ) &> /dev/null
