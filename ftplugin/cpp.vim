@@ -24,12 +24,19 @@ let g:ale_cpp_clang_options = "
 
 let g:ale_cpp_gcc_options  = ale_cpp_clang_options
 
-" Use clang tidy options if it's a header file, or a file outside
-" the current project. Otherwise use compilation database from build directory
-let not_within_project_dir = empty(matchstr(expand("%:p:h"), $PROJECT))
-let is_a_header_file = expand("%:e") =~ "h"
-let g:ale_cpp_clangtidy_options =  not_within_project_dir
-      \                            || is_a_header_file ? ale_cpp_clang_options : ''
+" default option if editing a source file within project
+" will use json compile commands database
+let g:ale_cpp_clangtidy_options = ''
+
+" editing a file outside of the project, use only C++17
+if empty(matchstr(expand("%:p:h"), $PROJECT))
+  let g:ale_cpp_clangtidy_options = 'std=c++17'
+
+" editing a header file, which is not supported by compile commands
+" give it the include flags manually
+elseif expand("%:e") =~ "h"
+  let g:ale_cpp_clangtidy_options = ale_cpp_clang_options
+endif
 
 " Let clang tidy find the config file by setting checks to empty
 let g:ale_cpp_clangtidy_checks = []
