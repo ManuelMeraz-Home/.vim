@@ -120,21 +120,3 @@ def FlagsForFile(filename, **kwargs):
         compilation_info.compiler_working_dir_,
         "override_filename": filename,
     }
-
-
-def IncludeRecursively(directory):
-    # Include all directories containing a header file of some sort
-    # recursively, without manually adding them in to the flags
-    # list
-    include_paths = []
-
-    for dir, subdirs, files in os.walk(directory):
-        for file in files:
-            if ".h" in file and dir not in include_paths:
-                include_paths.append("-isystem ")
-                include_paths.append(dir + " ")
-
-                break
-
-    return include_paths
-

@@ -13,7 +13,7 @@ let g:ale_c_build_dir_names = []
 " project. 
 let current_file = expand('%:p')
 let project_dir = $PROJECT
-let get_includes_command = $HOME .'/.vim/.extract_compilation_db_includes.py ' . project_dir .' '. current_file
+let get_includes_command = $HOME .'/.vim/.includes_from_build ' . project_dir .' '. current_file
 let g:current_file_comp_db_includes = system(get_includes_command)
 
 " clang and gcc in ale lint do not use the json databses, so must tell
