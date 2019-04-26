@@ -1,9 +1,8 @@
-#!/usr/bin/python
-
-'''
+#!/usr/bin/env python3
+"""
 Extract include_dirs information from a compilation database file and
 also from conan build info file
-'''
+"""
 
 import json
 import os
@@ -11,15 +10,17 @@ import sys
 
 
 def parseCompileCompilationsDB(database):
-    '''
+    """
     @brief extract all include directories from the compilation database
            for the file we're analyzing
 
     @param database The full path to the database file
     @type  database string
-    '''
+    """
     with open(database, "r") as f:
         data = json.load(f)
+
+        include_dirs = []
 
         for entry in data:
             if file_name in entry["file"]:
@@ -29,16 +30,18 @@ def parseCompileCompilationsDB(database):
                     if inc.startswith("-I")
                 ]
 
+                break
+
     return include_dirs
 
 
 def parseConanBuildInfo(conanbuildinfo):
-    '''
+    """
     @brief extract all include directories from the conan build info file
 
     @param conanbuildinfo The full path to the database file
     @type  conanbuildinfo string
-    '''
+    """
     include_dirs = []
     with open(conanbuildinfo, "r") as f:
         include_dirs_begin = False
@@ -59,7 +62,7 @@ def parseConanBuildInfo(conanbuildinfo):
 
 
 def extractIncludes(directory, file_name):
-    '''
+    """
     @brief search a project directory for a build directory and extract
            build information from a compilation database file
 
@@ -68,7 +71,7 @@ def extractIncludes(directory, file_name):
 
     @param file_name The name of the file (e.g. main.cpp)
     @type  file_name string
-    '''
+    """
 
     file_handlers = {
         "compile_commands.json": parseCompileCompilationsDB,
@@ -110,9 +113,11 @@ if __name__ == "__main__":
 
     # Get any directories within the includes
     nested_include_dirs = []
+
     for dir in include_dirs:
         nested_include_dirs = nested_include_dirs + getIncludeRecursively(dir)
 
     include_dirs = include_dirs + nested_include_dirs
+
     if include_dirs:
-        print(" ".join(include_dirs))
+        sys.stdout.write(" ".join(include_dirs))
