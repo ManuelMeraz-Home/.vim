@@ -13,5 +13,12 @@ bind '"\C-p":"\eddictrl_p\r"'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash 2> /dev/null
 
 # search home directory and workspace directory for files with fzf
-export FZF_DEFAULT_COMMAND='ag $PROJECT --hidden --ignore .git -g "" && ag $HOME --hidden --ignore .git -g ""'
+FZF_DEFAULT_COMMAND=""
 
+if [[ $PROJECT/ = /home/"$(whoami)"/* ]]; then
+  FZF_DEFAULT_COMMAND='ag $HOME --hidden --ignore .git -g ""'
+else
+  FZF_DEFAULT_COMMAND='ag $PROJECT --hidden --ignore .git -g "" && ag $HOME --hidden --ignore .git -g ""'
+fi 
+
+export FZF_DEFAULT_COMMAND
