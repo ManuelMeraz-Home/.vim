@@ -20,13 +20,15 @@ let g:current_file_comp_db_includes = system(get_includes_command)
 " them specific flags
 let g:ale_cpp_clang_options = "
       \ -std=c++17 
-      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic "
+      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic "
       \ .$PROJECT_INCLUDE_DIRS." "
       \ .current_file_comp_db_includes
 
 let g:ale_cpp_gcc_options  = ale_cpp_clang_options
 
-let g:ale_cpp_clangtidy_options = $PROJECT_INCLUDE_DIRS ." ".current_file_comp_db_includes
+" Use clang tidy options if it's a header file, otherwise use compilation
+" database from build directory
+let g:ale_cpp_clangtidy_options =  expand("%:e") =~ "h" ? ale_cpp_clang_options : ''
 
 " Let clang tidy find the config file by setting checks to empty
 let g:ale_cpp_clangtidy_checks = []
