@@ -17,7 +17,7 @@ let g:current_file_comp_db_includes = system(get_includes_command)
 " clang and gcc in ale lint do not use the json databses, so must tell
 " them specific flags
 let g:ale_cpp_clang_options = "
-      \ -std=c++17 
+      \ -std=c++11 
       \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic "
       \ .$PROJECT_INCLUDE_DIRS." "
       \ .current_file_comp_db_includes
