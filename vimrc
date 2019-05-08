@@ -22,9 +22,6 @@ set laststatus=2
 set rtp+=~/.vim/bundle/.fzf
 nmap <C-p> :FZF<CR>
 
-" Automatically copy to clipboard
-set clipboard=unnamedplus
-
 " ignore ex mode
 nnoremap q: <Nop>
 nnoremap Q <nop>
