@@ -28,8 +28,10 @@ echo "Installing YouCompleteMe for C family..."
 echo "Installing python fixers with pip..."
 (pip3 install -r $HOME/.vim/requirements.txt)
 
-echo "Installing cpp fixers for ALE..."
-(sudo apt -qq clang clang-tidy clang-format ) &> /dev/null
+echo "Installing fixers for ALE..."
+(sudo apt -qq clang clang-tidy clang-format npm) &> /dev/null
+(sudo npm install bash-language-server) &> /dev/null
+(sudo snap install shfmt) &> /dev/null
 
 [[ ! -e $HOME/.clang-tidy ]] && cp $HOME/.vim/.clang-tidy $HOME
 [[ ! -e $HOME/.clang-format ]] && cp $HOME/.vim/.clang-format $HOME
