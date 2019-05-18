@@ -1,15 +1,15 @@
+#! /usr/bin/env python3
 import os
 import platform
 import sys
 from distutils.sysconfig import get_python_inc
 
 import ycm_core
+sys.path.append(os.environ.get("HOME") + "/.vim/")
+from includes_from_build import *
 
-sys.path.insert(0, os.environ.get("HOME") + "/.vim/")
-from includes_from_build import get_all_includes
-
-project_path = ''
-project_include_dirs = ''
+project_path = ""
+project_include_dirs = ""
 
 if os.environ.get("PROJECT"):
     project_path = os.environ.get("PROJECT")
@@ -93,43 +93,8 @@ def FindCorrespondingSourceFile(filename):
 
 
 def FlagsForFile(filename, **kwargs):
-    # If the file is a header, try to find the corresponding source file and
-    # retrieve its flags from the compilation database if using one. This is
-    # necessary since compilation databases don't have entries for header
-    # files.  In addition, use this source file as the translation unit. This
-    # makes it possible to jump from a declaration in the header file to its
-    # definition in the corresponding source file.
-    # filename = FindCorrespondingSourceFile(filename)
-
-    if not database or IsHeaderFile(filename):
-        return {
-            "flags": flags + get_all_includes(project_path, filename),
-            "include_paths_relative_to_dir": [],
-            "override_filename": filename,
-        }
-
-    filename = FindCorrespondingSourceFile(filename)
-    compilation_info = database.GetCompilationInfoForFile(filename)
-
-    if not compilation_info.compiler_flags_:
-        return None
-
-    # Bear in mind that compilation_info.compiler_flags_ does NOT return a
-    # python list, but a "list-like" StringVec object.
-    final_flags = list(compilation_info.compiler_flags_)
-    final_flags = final_flags + flags
-
-    # NOTE: This is just for YouCompleteMe; it's highly likely that your
-    # project does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
-    # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-    try:
-        final_flags.remove("-stdlib=libc++")
-    except ValueError:
-        pass
-
     return {
-        "flags": final_flags,
-        "include_paths_relative_to_dir":
-        compilation_info.compiler_working_dir_,
+        "flags": flags + getAllIncludes(project_path, filename),
+        "include_paths_relative_to_dir": DirectoryOfThisScript(),
         "override_filename": filename,
     }

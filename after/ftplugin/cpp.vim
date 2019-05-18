@@ -30,7 +30,7 @@ let g:ale_cpp_clangtidy_options = "-x c++"
 
 " editing a file outside of the project, use only C++17
 if empty(matchstr(expand("%:p:h"), $PROJECT))
-  let g:ale_cpp_clangtidy_options = 'std=c++17' . ale_cpp_clangtidy_options 
+  let g:ale_cpp_clangtidy_options = '-std=c++17' . ale_cpp_clangtidy_options 
 
 " editing a header file, which is not supported by compile commands
 " give it the include flags manually

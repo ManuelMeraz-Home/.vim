@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 """
 Extract include_dirs information from a compilation database file and
 also from conan build info file
@@ -9,7 +9,7 @@ import os
 import sys
 
 
-def parseCompileCompilationsDB(database):
+def parseCompileCompilationsDB(database, file_name):
     """
     @brief extract all include directories from the compilation database
            for the file we're analyzing
@@ -35,7 +35,7 @@ def parseCompileCompilationsDB(database):
     return include_dirs
 
 
-def parseConanBuildInfo(conanbuildinfo):
+def parseConanBuildInfo(conanbuildinfo, file_name):
     """
     @brief extract all include directories from the conan build info file
 
@@ -89,7 +89,7 @@ def extractIncludes(directory, file_name):
 
         for file in files:
             handler = file_handlers[file]
-            include_dirs = include_dirs + handler(os.path.join(root, file))
+            include_dirs = include_dirs + handler(os.path.join(root, file), file_name)
 
     return list(set(include_dirs))
 
@@ -104,10 +104,9 @@ def getIncludeRecursively(include_dir):
     return nested_include_dirs
 
 
-def get_all_includes(project_dir, file_name):
+def getAllIncludes(project_dir, file_name):
     # find build directory and pull out build info containing includes
     include_dirs = extractIncludes(project_dir, file_name)
-
     # Get any directories within the includes
     nested_include_dirs = []
 
@@ -123,7 +122,7 @@ if __name__ == "__main__":
     project_dir = sys.argv[1]
     file_name = sys.argv[2]
 
-    include_dirs = get_all_includes(project_dir, file_name)
+    include_dirs = getAllIncludes(project_dir, file_name)
 
     if include_dirs:
         sys.stdout.write(" ".join(include_dirs))
