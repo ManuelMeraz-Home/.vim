@@ -104,10 +104,7 @@ def getIncludeRecursively(include_dir):
     return nested_include_dirs
 
 
-if __name__ == "__main__":
-    project_dir = sys.argv[1]
-    file_name = sys.argv[2]
-
+def get_all_includes(project_dir, file_name):
     # find build directory and pull out build info containing includes
     include_dirs = extractIncludes(project_dir, file_name)
 
@@ -118,6 +115,15 @@ if __name__ == "__main__":
         nested_include_dirs = nested_include_dirs + getIncludeRecursively(dir)
 
     include_dirs = include_dirs + nested_include_dirs
+
+    return include_dirs
+
+
+if __name__ == "__main__":
+    project_dir = sys.argv[1]
+    file_name = sys.argv[2]
+
+    include_dirs = get_all_includes(project_dir, file_name)
 
     if include_dirs:
         sys.stdout.write(" ".join(include_dirs))

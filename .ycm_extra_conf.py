@@ -1,8 +1,21 @@
 import os
 import platform
+import sys
 from distutils.sysconfig import get_python_inc
 
 import ycm_core
+
+sys.path.insert(0, os.environ.get("HOME") + "/.vim/")
+from includes_from_build import get_all_includes
+
+project_path = ''
+project_include_dirs = ''
+
+if os.environ.get("PROJECT"):
+    project_path = os.environ.get("PROJECT")
+
+if os.environ.get("PROJECT_INCLUDE_DIRS"):
+    project_include_dirs = os.environ.get("PROJECT_INCLUDE_DIRS").split()
 
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
@@ -27,8 +40,7 @@ flags = [
     get_python_inc(),
 ]
 
-include_dirs = os.environ.get("PROJECT_INCLUDE_DIRS").split()
-flags = flags + include_dirs
+flags = flags + project_include_dirs
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
 # which is required for compiling the standard library, and to 'c++11' for
@@ -47,7 +59,7 @@ if platform.system() != "Windows":
 #
 # Most projects will NOT need to set this to anything; you can just change the
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
-compilation_database_folder = os.environ.get("PROJECT") + "/build"
+compilation_database_folder = project_path + "/build"
 
 if os.path.exists(compilation_database_folder):
     database = ycm_core.CompilationDatabase(compilation_database_folder)
@@ -91,7 +103,7 @@ def FlagsForFile(filename, **kwargs):
 
     if not database:
         return {
-            "flags": flags,
+            "flags": flags + get_all_includes(project_path, filename),
             "include_paths_relative_to_dir": DirectoryOfThisScript(),
             "override_filename": filename,
         }
