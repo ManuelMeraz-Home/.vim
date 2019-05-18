@@ -18,7 +18,7 @@ let g:current_file_comp_db_includes = system(get_includes_command)
 " them specific flags
 let g:ale_cpp_clang_options = "
       \ -std=c++17 
-      \ -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic "
+      \ -Wall -Wextra -Wnon-virtual-dtor -pedantic "
       \ .$PROJECT_INCLUDE_DIRS." "
       \ .current_file_comp_db_includes
 
