@@ -99,15 +99,16 @@ def FlagsForFile(filename, **kwargs):
     # files.  In addition, use this source file as the translation unit. This
     # makes it possible to jump from a declaration in the header file to its
     # definition in the corresponding source file.
-    filename = FindCorrespondingSourceFile(filename)
+    # filename = FindCorrespondingSourceFile(filename)
 
-    if not database:
+    if not database or IsHeaderFile(filename):
         return {
             "flags": flags + get_all_includes(project_path, filename),
-            "include_paths_relative_to_dir": DirectoryOfThisScript(),
+            "include_paths_relative_to_dir": [],
             "override_filename": filename,
         }
 
+    filename = FindCorrespondingSourceFile(filename)
     compilation_info = database.GetCompilationInfoForFile(filename)
 
     if not compilation_info.compiler_flags_:
