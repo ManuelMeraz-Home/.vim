@@ -40,7 +40,8 @@ flags = [
     get_python_inc(),
 ]
 
-flags = flags + project_include_dirs
+if project_include_dirs:
+    flags = flags + project_include_dirs
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
 # which is required for compiling the standard library, and to 'c++11' for
