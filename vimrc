@@ -1,4 +1,4 @@
-color elflord
+color industry
 
 " Load vim plugins from bundle
 execute pathogen#infect()
@@ -11,6 +11,7 @@ filetype plugin indent on
 
 " Turn on color highlighting
 syntax on
+
 
 " Show line number, nice tabs, and relative numbers
 set number ts=2 sw=2 sts=2 nocompatible expandtab rnu
