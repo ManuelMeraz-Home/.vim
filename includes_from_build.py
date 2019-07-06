@@ -25,9 +25,10 @@ def parseCompileCompilationsDB(database, file_name):
         for entry in data:
             if file_name in entry["file"]:
 
+                commands = entry["command"].split()
                 include_dirs = [
-                    inc for inc in entry["command"].split()
-                    if inc.startswith("-I")
+                    inc for inc in commands
+                    if inc.startswith("-I") or "CXX_prefix.hxx" in inc
                 ]
 
                 break
@@ -89,7 +90,8 @@ def extractIncludes(directory, file_name):
 
         for file in files:
             handler = file_handlers[file]
-            include_dirs = include_dirs + handler(os.path.join(root, file), file_name)
+            include_dirs = include_dirs + handler(os.path.join(root, file),
+                                                  file_name)
 
     return list(set(include_dirs))
 
@@ -115,7 +117,13 @@ def getAllIncludes(project_dir, file_name):
 
     include_dirs = include_dirs + nested_include_dirs
 
-    return include_dirs
+    system_dirs = []
+
+    for dir in include_dirs:
+        system_dirs.append("-isystem")
+        system_dirs.append(dir.lstrip("-I"))
+
+    return system_dirs
 
 
 if __name__ == "__main__":

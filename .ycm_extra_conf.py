@@ -5,8 +5,9 @@ import sys
 from distutils.sysconfig import get_python_inc
 
 import ycm_core
-sys.path.append(os.environ.get("HOME") + "/.vim/")
 from includes_from_build import *
+
+sys.path.append(os.environ.get("HOME") + "/.vim/")
 
 project_path = ""
 project_include_dirs = ""
@@ -40,7 +41,8 @@ flags = [
     get_python_inc(),
 ]
 
-flags = flags + project_include_dirs
+if project_include_dirs:
+    flags = flags + project_include_dirs
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
 # which is required for compiling the standard library, and to 'c++11' for
