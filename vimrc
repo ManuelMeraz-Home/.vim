@@ -1,4 +1,4 @@
-color industry
+color elflord
 
 " Load vim plugins from bundle
 execute pathogen#infect()

@@ -5,9 +5,9 @@ import sys
 from distutils.sysconfig import get_python_inc
 
 import ycm_core
-from includes_from_build import *
-
 sys.path.append(os.environ.get("HOME") + "/.vim/")
+
+from includes_from_build import *
 
 project_path = ""
 project_include_dirs = ""
