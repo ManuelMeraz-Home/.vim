@@ -77,6 +77,9 @@ function Backspace()
 endfunction
 
 "====PLUGIN SETTINGS====
+" Notify when gutentags is generating tags
+set statusline+=%{gutentags#statusline()}
+
 " " make YCM compatible with UltiSnips (using supertab)
 set encoding=utf-8
 let g:SuperTabDefaultCompletionType = '<C-n>'
