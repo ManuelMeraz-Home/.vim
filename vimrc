@@ -12,11 +12,17 @@ filetype plugin indent on
 " Turn on color highlighting
 syntax on
 
+
 " Show line number, nice tabs, and relative numbers
 set number ts=2 sw=2 sts=2 nocompatible expandtab rnu
 
 " Lightline status bar on the bottom 
 set laststatus=2
+
+" Paste mode allows pasting without
+" auto indenting in insert mode. This
+" toggle that by pressing F2
+set pastetoggle=<F2>
 
 " set runtime path (environment variable) for vim
 set rtp+=~/.vim/bundle/.fzf
