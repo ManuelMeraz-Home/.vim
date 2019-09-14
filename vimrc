@@ -28,12 +28,15 @@ set pastetoggle=<F2>
 set rtp+=~/.vim/bundle/.fzf
 nmap <C-p> :FZF<CR>
 
+" remap WQ to wq
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " ignore ex mode
 nnoremap q: <Nop>
 nnoremap Q <nop>
-
-" Quit vim with :Q as well
-command! Q :q
 
 " move to next buffer
 map gn :bn<cr>
@@ -130,3 +133,6 @@ map <C-n> :NERDTree<CR>
 
 " call ale fixers with ctrl+l
 nmap <C-l> <Plug>(ale_fix)
+
+" turn hard mode on
+ let g:hardtime_default_on = 1
