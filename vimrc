@@ -14,7 +14,7 @@ syntax on
 
 
 " Show line number, nice tabs, and relative numbers
-set number ts=2 sw=2 sts=2 nocompatible expandtab rnu
+set number ts=4 sw=4 sts=4 nocompatible expandtab rnu
 
 " Lightline status bar on the bottom 
 set laststatus=2

@@ -1,3 +1,6 @@
+" indentation
+set ts=4 sw=4 sts=4
+
 " Set this to 0 to disable ale
 let g:ale_enabled = 1
 
