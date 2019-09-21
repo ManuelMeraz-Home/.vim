@@ -22,10 +22,6 @@
 	path = bundle/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
   ignore = dirty
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-  ignore = dirty
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -33,18 +29,6 @@
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
-  ignore = dirty
-[submodule "bundle/mru.vim"]
-	path = bundle/mru.vim
-	url = https://github.com/vim-scripts/mru.vim.git
-  ignore = dirty
-[submodule "bundle/vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-  ignore = dirty
-[submodule "bundle/vim-snippets"]
-	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
   ignore = dirty
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
@@ -68,6 +52,3 @@
 [submodule "bundle/vim-gutentags"]
 	path = bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
-[submodule "bundle/vim-hardtime"]
-	path = bundle/vim-hardtime
-	url = https://github.com/takac/vim-hardtime.git

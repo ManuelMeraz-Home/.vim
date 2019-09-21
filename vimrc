@@ -1,3 +1,6 @@
+" Don't use X11 clipboard for vim
+set clipboard=exclude:.*
+
 color industry
 
 " Load vim plugins from bundle
