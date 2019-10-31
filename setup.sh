@@ -29,7 +29,7 @@ echo "Installing python fixers with pip..."
 pip3 install -r $HOME/.vim/requirements.txt
 
 echo "Installing fixers for ALE..."
-sudo apt -qq clang clang-tidy clang-format npm &
+sudo apt -qq install clang clang-tidy clang-format npm &
 sudo npm install bash-language-server &
 sudo snap install shfmt &
 
