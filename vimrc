@@ -1,7 +1,7 @@
 " Don't use X11 clipboard for vim
 set clipboard=exclude:.*
 
-color industry
+color elflord
 
 " Load vim plugins from bundle
 execute pathogen#infect()
