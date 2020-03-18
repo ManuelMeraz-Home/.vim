@@ -58,10 +58,6 @@ endif
 " fixes backspace on redhat machines
 inoremap <silent><backspace> <C-O>:call Backspace()<CR>
 
-" set caps lock to escape in vim  
-au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-
 function Backspace() 
 
 	let line_length = strwidth(getline('.'))
