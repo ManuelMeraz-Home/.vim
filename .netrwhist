@@ -1,7 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/manny/ros2_overlay_ws/src/examples/rclcpp'
-let g:netrw_dirhist_2='/home/manny/ros2_overlay_ws/src/examples'
-let g:netrw_dirhist_3='/home/manny/ros2_overlay_ws/src'
-let g:netrw_dirhist_4='/home/manny/ros2_overlay_ws'
-let g:netrw_dirhist_5='/home/manny/test_ws/src/communicate/src'
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/manny/projects/rover_workspace/log/latest'
+let g:netrw_dirhist_3='/home/manny/projects/rover_workspace/log/latest/rover'
+let g:netrw_dirhist_2='/home/manny/projects/rover_workspace/log/latest'
+let g:netrw_dirhist_1='/etc/apt/sources.list.d'
