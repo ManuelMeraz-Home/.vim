@@ -55,39 +55,6 @@ if !has('gui_running')
     set t_Co=256
 endif
 
-" fixes backspace on redhat machines
-inoremap <silent><backspace> <C-O>:call Backspace()<CR>
-
-function Backspace() 
-
-	let line_length = strwidth(getline('.'))
-	"let current_pos = getcurpos()
-	"let line_pos = current_pos[1]
-	"let col_pos = current_pos[2]
-	let line_pos = line('.')
-	let col_pos = col('.')
-
-	" not in the beginning nor the end
-	if col_pos > 1 && col_pos != line_length
-		normal! hx
-		startinsert
-	" in the end of the line
-	elseif col_pos == line_length
-		normal! x
-		startinsert! 
-	" the beginning of the line and not the first line
-	elseif col_pos == 1 && line_pos > 1
-		if line_length == 0
-      normal! kJx
-			startinsert!
-		else 
-      normal! kJ
-			startinsert
-		endif
-	endif
-
-endfunction
-
 "====PLUGIN SETTINGS====
 " Notify when gutentags is generating tags
 set statusline+=%{gutentags#statusline()}
