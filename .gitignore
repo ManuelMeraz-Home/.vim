@@ -1,4 +1,6 @@
 *.swp
+node_modules/
+package-lock.json
 .mypy_cache/
 tags
 .netrwhist
