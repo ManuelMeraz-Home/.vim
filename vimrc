@@ -15,7 +15,6 @@ filetype plugin indent on
 " Turn on color highlighting
 syntax on
 
-
 " Show line number, nice tabs, and relative numbers
 set number ts=4 sw=4 sts=4 nocompatible expandtab rnu
 
@@ -61,31 +60,6 @@ set statusline+=%{gutentags#statusline()}
 
 " " make YCM compatible with UltiSnips (using supertab)
 set encoding=utf-8
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.','re![_a-zA-z0-9]'],
-  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-  \             're!\[.*\]\s'],
-  \   'ocaml' : ['.', '#'],
-  \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
-  \   'perl' : ['->'],
-  \   'php' : ['->', '::'],
-  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-  \   'ruby' : ['.', '::'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \ }
-
-" " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Matchit - highlights pairs
 let g:hl_matchit_enable_on_vim_startup = 1
@@ -93,12 +67,3 @@ let g:hl_matchit_enable_on_vim_startup = 1
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
-
-" NERDTree mapping
-map <C-n> :NERDTree<CR>
-
-" call ale fixers with ctrl+l
-nmap <C-l> <Plug>(ale_fix)
-
-" turn hard mode on
- let g:hardtime_default_on = 1
