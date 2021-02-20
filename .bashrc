@@ -8,7 +8,7 @@ ctrl_p() {
 }
 
 # bind ctrp-p to allow vim to fuzzy find a file
-bind '"\C-p":"\eddictrl_p\r"'
+bind '"\C-p":"ctrl_p\n"'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash 2> /dev/null
 

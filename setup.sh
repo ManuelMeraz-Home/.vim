@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+sudo apt install vim silversearcher-ag
+
 # Switch to the `~/.vim` directory, and fetch submodules:
 echo "Download vim plugins and install..."
 cd $HOME/.vim && git submodule update --init --recursive 
