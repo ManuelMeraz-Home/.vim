@@ -3,6 +3,7 @@
 set -o errexit
 set -o nounset
 set -o pipefail
+<<<<<<< Updated upstream
 
 echo "Sudo is required. Password might be prompted"
 sudo sleep 1
@@ -11,6 +12,8 @@ if [[ $? != 0 ]]; then
     echo "Exiting script, was not successful"
     return 1
 fi
+=======
+>>>>>>> Stashed changes
 
 # Vim 8 is required for a few of my plugins:
 echo "Installing Vim 8..."
@@ -21,7 +24,6 @@ sudo apt -qq install vim -y
 # Switch to the `~/.vim` directory, and fetch submodules:
 echo "Download vim plugins and install..."
 cd $HOME/.vim && git submodule update --init --recursive 
-
 
 # Install fuzzy finder
 echo "Installing fuzzy finder..."
