@@ -3,17 +3,6 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-<<<<<<< Updated upstream
-
-echo "Sudo is required. Password might be prompted"
-sudo sleep 1
-
-if [[ $? != 0 ]]; then
-    echo "Exiting script, was not successful"
-    return 1
-fi
-=======
->>>>>>> Stashed changes
 
 # Vim 8 is required for a few of my plugins:
 echo "Installing Vim 8..."
@@ -43,11 +32,17 @@ echo "Installing python fixers with pip..."
 pip3 install -r $HOME/.vim/requirements.txt
 
 echo "Installing fixers for ALE..."
-sudo apt -qq install clang clang-tidy clang-format npm snapd clangd -y
+sudo apt -qq install flake8 clang clang-tidy clang-format npm snapd clangd -y
 sudo npm install bash-language-server 
 snap install shfmt 
 
-[[ ! -e $HOME/.clang-tidy ]] && cp $HOME/.vim/.clang-tidy $HOME
-[[ ! -e $HOME/.clang-format ]] && cp $HOME/.vim/.clang-format $HOME
+add_to_home() {
+   plugin_name=$1
+   [[ ! -e "$HOME/.${plugin_name}" ]] && cp "$HOME/.vim/.${plugin_name}" $HOME
+}
+
+add_to_home clang-tidy
+add_to_home clang-format
+add_to_home flake8
 
 echo "Done!"
