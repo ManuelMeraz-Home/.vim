@@ -1,5 +1,9 @@
 #! /usr/bin/env bash
 
+set -o errexit
+set -o nounset
+set -o pipefail
+
 echo "Sudo is required. Password might be prompted"
 sudo sleep 1
 
